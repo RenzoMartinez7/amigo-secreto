@@ -18,16 +18,21 @@ Las restricciones son importantes para evitar un mal uso del programa, y para es
 Antes de comenzar con la codificación, primero se tuvo que identificar los elementos del DOM que requieren tener la funcionalidad. Entre ellos se hallaron elementos de los tipos: `ul`, `input` y `button`, cada uno tiene su respectivo identificador (`id`).
 ### 1. Inicializar un arreglo
 El uso de arreglos es fundamental para este tipo de casos, porque almacena datos y también tiene funciones propias para su manejo. Por ende, se inicializó un array vacío.
+
 ![image](https://github.com/user-attachments/assets/fa9835f2-dff7-4a2d-8d15-0848cf345b77)
 
 ### 2. Función `agregarAmigo()`
 Esta función obtiene el elemento input del DOM para así tener acceso al valor que contiene.
+
 ![image](https://github.com/user-attachments/assets/285e7c9a-8804-4dec-a240-b98635d840b7)
+
 Se agrega una condicional `if` para orientar al usuario a que agregue al menos un valor en el input, en caso haya valor, se ingresa al siguiente bloque `if` anidado, donde si existe valor se añadirá ese mismo al arreglo con el método `push()`. Asimismo, se limpia el `input` modificando su valor con `""`, luego se llama a la función `mostrarAmigos()` para actualizar la lista con datos actuales. Finalmente, se actualiza a vacío el contenido del elemento `lista` con id `resultado` para como propuesta a nuevo sorteo.
+
 ![image](https://github.com/user-attachments/assets/006f2192-dbd5-424f-a1d8-539f7b6bc444)
 
 ### 3. Función `mostrarAmigos()`
 En primera instancia se obtiene el elemento `ul` con id `listaAmigos` para agregar elementos hija (`li`). Para ello se usó la estructura de control repetitiva `forEach` para recorrer el arreglo `listaAmigos`y de esa manera añadir `li` a la lista `listaAmigos` a base del contenido del arreglo.
+
 ![image](https://github.com/user-attachments/assets/e9fc66a9-5fbd-4bf5-8ca5-90e22fa70b9c)
 
 #### 3.1 ¿Por qué `textContent` y no `innerHTML`?  
@@ -43,10 +48,12 @@ Según el blog midu.dev, el `forEach` es un método que se utiliza para hacer it
 Por tal razón, se decidió por el método `forEach()`  porque hace que el código sea más claro, fácil de mantener y lo libra de posibles errores derivados del manejo manual de índices, dado que su impacto en el rendimiento es mínimo para la solución del reto, su ventaja en legibilidad y seguridad lo convirtió en la mejor elección.
 ### 4. Función `sortearAmigo()`
 En esta función se evalúa primero si el arreglo tiene un tamaño igual a cero (lo que vendría a ser sin datos) para que restrinja el sorteo. En caso su tamaño sea diferente de cero (o tenga datos) se selecciona aleatoriamente un amigo de la lista utilizando `Math.random()` y `Math.floor()` para obtener un índice válido dentro del arreglo. Luego, el nombre del amigo sorteado se muestra en la `ul` `"resultado"`, actualizando su contenido con `textContent`. Finalmente, se llama a la función `vaciarListaAmigos()`, que borra la lista de amigos después de realizar el sorteo.
+
 ![image](https://github.com/user-attachments/assets/c92c4f39-39ac-4e71-84b1-1db29813f325)
 
 ### 5. Función `vaciarListaAmigos()`
 Esta función cumple con el propósito de actualizar el arreglo a uno sin elementos. Finalmente, llama a la función `mostrarAmigos()` para actualizar la lista del DOM.
+
 ![image](https://github.com/user-attachments/assets/3dbf4a54-23f6-4180-9676-d9c9762b8360)
 
 ## Conclusiones
