@@ -13,7 +13,7 @@ function agregarAmigo() {
   } else {
     if (valor) {
       listaAmigos.push(valor);
-      amigo.value.trim() = "";
+      amigo.value = "";
       mostrarAmigos();
       document.getElementById("resultado").textContent = "";
       // console.log(listaAmigos);
