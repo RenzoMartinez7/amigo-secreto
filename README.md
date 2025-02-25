@@ -1,6 +1,7 @@
 # Challenge Amigo Secreto
 ## Introducción
 Este reto propuesto en el programa One Next Education (ONE) con Alura LATAM consiste en mejorar la lógica de programación de sus alumnos. Se propone el uso de `functions` y `arrays` para una mejor modularidad y manejo de datos.
+
 ## Descripción del reto
  El reto consiste en agregar funcionalidad al Front brindado, y estas son:
  - Crear un arreglo para almacenar los nombres.
@@ -9,6 +10,7 @@ Este reto propuesto en el programa One Next Education (ONE) con Alura LATAM cons
  - Implementar una función para sortear los amigos.
 
 Estas funcionalidades tienen el propósito de que el usuario pueda agregar los nombres de sus amigos a una lista, una vez teniendo listo, podrá sortearlos para así obtener el nombre ganador.
+
 ### Restricciones del reto
 Las restricciones son importantes para evitar un mal uso del programa, y para este solo se necesitarán alertas en los siguientes casos:
  - Si en la caja de texto no contiene valor (vacío) no se podrá agregar elementos a la lista.
@@ -41,11 +43,14 @@ En JavaScript, existen múltiples formas de modificar el contenido de un element
 |--|--|--|--|
 | innerHTML |Permite obtener o establecer el contenido HTML de un elemento, interpretando las etiquetas HTML que contiene.|- Permite insertar HTML dinámico.  - Útil cuando se necesita agregar elementos con formato.|- Riesgo de ataques XSS si se usa con datos no confiables.  - Menor rendimiento debido al procesamiento del HTML.
 |textContent|Obtiene o establece el texto dentro de un elemento sin procesarlo como HTML.|- Mayor seguridad al evitar la ejecución de scripts maliciosos (prevención de XSS).  - Mejor rendimiento porque no analiza ni interpreta el HTML.|- No permite la inserción de contenido HTML.   
+
 Según la documentación de MDN Web Docs, es preferible utilizar `textContent` en el lugar de `innerHTML` para evitar posibles vulnerabilidades de seguridad y mejorar el rendimiento de la aplicación. Como solo se necesitaba agregar texto sin procesar dentro de los elementos de la lista, `textContent` ha sido la opción más segura y eficiente.
+
 #### 3.2 `forEach` envés de `for`
 El bucle `for` es el más utilizado pero ***¿es el más eficiente para este caso?*** 
 Según el blog midu.dev, el `forEach` es un método que se utiliza para hacer iteraciones sobre los elementos de un arreglo y ejecutar una función determinada en cada uno de ellos. Muy aparte de ello, es más legible y más rápido que `for` en casos específicos (como este), porque no requiere de un contador y comprobar condiciones para hacer el recorrido del arreglo. 
 Por tal razón, se decidió por el método `forEach()`  porque hace que el código sea más claro, fácil de mantener y lo libra de posibles errores derivados del manejo manual de índices, dado que su impacto en el rendimiento es mínimo para la solución del reto, su ventaja en legibilidad y seguridad lo convirtió en la mejor elección.
+
 ### 4. Función `sortearAmigo()`
 En esta función se evalúa primero si el arreglo tiene un tamaño igual a cero (lo que vendría a ser sin datos) para que restrinja el sorteo. En caso su tamaño sea diferente de cero (o tenga datos) se selecciona aleatoriamente un amigo de la lista utilizando `Math.random()` y `Math.floor()` para obtener un índice válido dentro del arreglo. Luego, el nombre del amigo sorteado se muestra en la `ul` `"resultado"`, actualizando su contenido con `textContent`. Finalmente, se llama a la función `vaciarListaAmigos()`, que borra la lista de amigos después de realizar el sorteo.
 
