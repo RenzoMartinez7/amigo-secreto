@@ -8,7 +8,7 @@ function agregarAmigo() {
   let amigo = document.getElementById("txtAmigo");
   let valor = amigo.value.trim();
 
-  if (amigo.value.trim() === "") {
+  if (valor === "") {
     alert("Por favor, inserte un nombre.");
   } else {
     if (valor) {
